@@ -5,6 +5,10 @@
  */
 package ifsc.com.designpatterns.strategy;
 
+import ifsc.com.designpatterns.strategy.interfaces.InvestStrategy;
+import ifsc.com.designpatterns.strategy.model.Context;
+import ifsc.com.designpatterns.strategy.strategies.Conservador;
+
 /**
  *
  * @author aluno
@@ -12,6 +16,10 @@ package ifsc.com.designpatterns.strategy;
 public class GoFStrategy {
     
     public static void main(String args[]) {
-        
+        Context c = new Context();
+        InvestStrategy conservador = new Conservador();
+        c.setStrategy(conservador);
+        double valorAtualizado = c.executeStrategy(100);
+        System.out.println("Valor atualizado: R$" + valorAtualizado);
     }
 }
